@@ -23,7 +23,7 @@ public class Code20 {
         }
 
         bubbleSort();
-        
+
         for (int i = 0; i < n; i++)
             System.out.println(name[i] + ": " + number[i]);
     }
