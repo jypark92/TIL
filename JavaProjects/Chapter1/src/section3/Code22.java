@@ -1,13 +1,12 @@
-package Section3;
+package section3;
 
 import java.io.*;
 import java.util.Scanner;
 
-public class Code23 {
+public class Code22 {
     static String [] words = new String [100000];
     static int [] count = new int [100000];
     static int n = 0;
-
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
         while (true) {
@@ -50,9 +49,7 @@ public class Code23 {
             Scanner inFile = new Scanner(new File(fileName));
             while (inFile.hasNext()) {
                 String str = inFile.next();
-                String trimmed = trmming(str);
-                if (trimmed != null)
-                    addWord(trimmed.toLowerCase());
+                addWord(str);
             }
             inFile.close();
         } catch (FileNotFoundException e) {
@@ -60,37 +57,20 @@ public class Code23 {
             return;
         }
     }
-    static String trmming(String str) {
-        int i = 0, j = str.length() - 1;
-        while (i < str.length() && !Character.isLetter(str.charAt(i)))
-            i++;
-        while (j >= 0 && !Character.isLetter(str.charAt(j)))
-            j--;
-
-        if (i > j)
-            return null;
-        return str.substring(i, j + 1);
-    }
     static void addWord(String str) {
         int index = findWord(str);
         if (index != -1) {
             count[index]++;
         }
         else {
-            int i = n - 1;
-            while (i >= 0 && words[i].compareTo(str) > 0) {
-                words[i + 1] = words[i];
-                count[i + 1] = count[i];
-                i--;
-            }
-            words[i + 1] = str;
-            count[i + 1] = 1;
+            words[n] = str;
+            count[n] = 1;
             n++;
         }
     }
     static int findWord(String str) {
         for (int i = 0; i < n; i++)
-            if (words[i].equals(str))
+            if (words[i].equalsIgnoreCase(str))
                 return i;
         return -1;
     }

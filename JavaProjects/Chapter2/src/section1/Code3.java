@@ -1,10 +1,10 @@
-package Section1;
+package section1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Code2 {
+public class Code3 {
     static Person1 [] members = new Person1[100];
     static int n = 0;
 
@@ -25,7 +25,20 @@ public class Code2 {
             System.exit(1);
         }
 
+        bubbleSort();
         for (int i = 0; i < n; i++)
             System.out.println(members[i].name + "'s phone number is " + members[i].number);
+    }
+
+    static void bubbleSort() {
+        for (int i = n - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (members[j].name.compareToIgnoreCase(members[j + 1].name) > 0) {
+                    Person1 tmp = members[j];
+                    members[j] = members[j + 1];
+                    members[j + 1] = tmp;
+                }
+            }
+        }
     }
 }

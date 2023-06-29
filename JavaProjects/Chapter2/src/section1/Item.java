@@ -1,4 +1,4 @@
-package Section1;
+package section1;
 
 public class Item {
     public String word;

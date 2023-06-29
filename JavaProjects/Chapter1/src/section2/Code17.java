@@ -1,4 +1,4 @@
-package Section2;
+package section2;
 
 public class Code17 {
     public static void main(String[] args) {
